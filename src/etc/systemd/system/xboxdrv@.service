@@ -1,0 +1,11 @@
+[Unit]
+Description=Xboxdrv controller service
+BindsTo=dev-bus-usb-%i.device
+[Service]
+Type=simple
+User=root
+Group=root
+Environment=RUNDIR=/var/run/xboxdrv
+Environment=DEVPATH=%i
+ExecStartPre=/usr/lib/systemd-xboxdrv/argbuilder.sh $DEVPATH
+ExecStart=/bin/sh -c "xboxdrv $(cat ${RUNDIR}/${DEVDIR}/args)"
