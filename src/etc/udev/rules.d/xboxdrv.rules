@@ -1,0 +1,6 @@
+ACTION=="add", TEST=="/etc/xboxdrv/$env{ID_VENDOR_ID}:$env{ID_MODEL_ID}", \
+    TAG+="systemd", ENV{SYSTEMD_WANTS}="xboxdrv@$env{BUSNUM}-$env{DEVNUM}.service", \
+    RUN+="/bin/mkdir -p /var/run/xboxdrv/$env{BUSNUM}-$env{DEVNUM}"
+    RUN+="/bin/touch /var/run/xboxdrv/$env{BUSNUM}-$env{DEVNUM}/$env{ID_VENDOR_ID}:$env{ID_MODEL_ID}"
+ACTION=="remove", TEST=="/etc/xboxdrv/$env{ID_VENDOR_ID}:$env{ID_MODEL_ID}", \
+    RUN+="/bin/rm -r /var/run/xboxdrv/$env{BUSNUM}-$env{DEVNUM}"
