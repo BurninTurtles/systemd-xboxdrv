@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CONFIGPATH="/etc/xboxdrv"
+CONFIGPATH="/etc/default/xboxdrv"
 RUNPATH="/var/run/xboxdrv/$1"
 ID="$(ls $RUNPATH)"
 ARGS="--config ${CONFIGPATH}/${ID}.xboxdrv"
