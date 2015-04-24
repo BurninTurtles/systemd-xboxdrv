@@ -1,0 +1,16 @@
+place configurations here.
+
+for a device with a single configuration, simply create 
+a config named your controllers vendor:product IDs appended with .xboxdrv.
+ex I have a microsoft wired xbox360 controller. its IDs are
+[vendor:045e product:028e]
+therefore, i name my config file "045e:028e.xboxdrv"
+
+for a device with multiple configurations do the following
+1. make the controller config file as above, adding only options 
+unrelated to layouts [eg chatpad, mimicxpad]
+2. create a folder of the same name minus ".xboxdrv"
+3. inside the folder, create configs named config0.xboxdrv, config1.xboxdrv, etc.
+containing your layout options
+
+the folder structure is loosely based on the file written by "xboxdrv --write-config"
