@@ -8,4 +8,4 @@ Group=root
 Environment=RUNDIR=/var/run/xboxdrv
 Environment=DEVPATH=%i
 ExecStartPre=/usr/lib/systemd-xboxdrv/argbuilder.sh $DEVPATH
-ExecStart=/bin/sh -c "xboxdrv $(cat ${RUNDIR}/${DEVDIR}/args)"
+ExecStart=/bin/sh -c "xboxdrv $(cat ${RUNDIR}/${DEVPATH}/args)"
