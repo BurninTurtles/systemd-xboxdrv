@@ -1,0 +1,11 @@
+[Unit]
+Description=Xbox Configuration
+Requisite=ubuntu-xboxdrv.service
+Before=xboxdrv@%i.service
+Requires=xboxdrv@%i.service
+StopWhenUnneeded=true
+
+[Service]
+Type=oneshot
+EnvironmentFile=/run/xboxdrv/running/%i
+ExecStart=/bin/sh -c 'cat /run/xboxdrv/profiles/$USBID >> /run/xboxdrv/running/%i'
