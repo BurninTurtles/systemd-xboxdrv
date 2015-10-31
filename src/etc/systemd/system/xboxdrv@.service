@@ -1,11 +1,14 @@
-[Unit]
-Description=Xboxdrv controller service
+Unit]
+Description=Xbox controller driver daemon
+Requisite=ubuntu-xboxdrv.service
+ConditionPathExists=/run/xboxdrv/running/%i
 BindsTo=dev-bus-usb-%i.device
+After=xboxdrv-config@.service
 [Service]
 Type=simple
-User=root
-Group=root
-Environment=RUNDIR=/var/run/xboxdrv
-Environment=DEVPATH=%i
-ExecStartPre=/usr/lib/systemd-xboxdrv/argbuilder.sh $DEVPATH
-ExecStart=/bin/sh -c "xboxdrv $(cat ${RUNDIR}/${DEVPATH}/args)"
+EnvironmentFile=/run/xboxdrv/running/%i
+
+ExecStart=/usr/bin/xboxdrv --silent $XBOXDRV_OPTIONS $PAD_OPTIONS $CONTROLLER_OPTIONS
+ 
+[Install]
+WantedBy=multi-user.target
