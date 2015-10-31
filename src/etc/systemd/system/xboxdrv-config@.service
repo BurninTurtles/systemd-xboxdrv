@@ -1,6 +1,6 @@
 [Unit]
 Description=Xbox Configuration
-Requisite=ubuntu-xboxdrv.service
+After=ubuntu-xboxdrv.service
 Before=xboxdrv@%i.service
 Requires=xboxdrv@%i.service
 StopWhenUnneeded=true
