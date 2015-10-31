@@ -1,0 +1,14 @@
+[Unit]
+Description=Xboxdrv Parent Service
+Requisite=xboxdrv-default.path
+[Service]
+Type=oneshot
+ExecStart=/bin/rm -f /dev/input/js*
+ExecStart=/usr/share/ubuntu-xboxdrv/build-run
+RemainAfterExit=yes
+
+
+ExecStop=/bin/rm -rf /run/xboxdrv
+
+[Install]
+WantedBy=multi-user.target
