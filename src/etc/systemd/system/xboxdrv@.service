@@ -1,14 +1,16 @@
-Unit]
+[Unit]
 Description=Xbox controller driver daemon
-Requisite=ubuntu-xboxdrv.service
 ConditionPathExists=/run/xboxdrv/running/%i
 BindsTo=dev-bus-usb-%i.device
-After=xboxdrv-config@.service
+After=xboxdrv-config@%i.service
+Requires=xboxdrv-config@%i.service
+
+StopWhenUnneeded=true
 [Service]
 Type=simple
 EnvironmentFile=/run/xboxdrv/running/%i
-
 ExecStart=/usr/bin/xboxdrv --silent $XBOXDRV_OPTIONS $PAD_OPTIONS $CONTROLLER_OPTIONS
- 
+SuccessExitStatus=6
+
 [Install]
 WantedBy=multi-user.target
