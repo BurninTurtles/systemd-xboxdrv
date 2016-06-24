@@ -1,14 +1,18 @@
 [Unit]
 Description=Xboxdrv Parent Service
+
 Requisite=xboxdrv-default.path
+After=multi-user.target
+
 [Service]
 Type=oneshot
+
+ExecStartPre=/bin/sleep 3
+
 ExecStart=/bin/rm -f /dev/input/js*
 ExecStart=/usr/share/ubuntu-xboxdrv/build-run
 RemainAfterExit=yes
 
+ExecStartPost=/bin/udevadm trigger --subsystem-match='usb'
 
 ExecStop=/bin/rm -rf /run/xboxdrv
-
-[Install]
-WantedBy=multi-user.target
