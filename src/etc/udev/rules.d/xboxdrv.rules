@@ -1,6 +1,6 @@
-ACTION=="add", SUBSYSTEM=="usb", TEST=="/run/xboxdrv/profiles/$env{ID_VENDOR_ID}:$env{ID_MODEL_ID}", \
+ACTION=="add|change", SUBSYSTEM=="usb", TEST=="/run/xboxdrv/profiles/$env{ID_VENDOR_ID}:$env{ID_MODEL_ID}", \
      TAG+="systemd", RUN+="/bin/sh -c 'echo USBID=$env{ID_VENDOR_ID}:$env{ID_MODEL_ID} > /run/xboxdrv/running/$env{BUSNUM}-$env{DEVNUM}'", \
-     ENV{SYSTEMD_WANTS}="xboxdrv-config@$env{BUSNUM}-$env{DEVNUM}.service", \
+     ENV{SYSTEMD_WANTS}="xboxdrv@$env{BUSNUM}-$env{DEVNUM}.service", \
      GOTO="xboxdrvend" 
 ACTION=="remove", SUBSYSTEM=="usb", TEST=="/run/xboxdrv/profiles/$env{ID_VENDOR_ID}:$env{ID_MODEL_ID}", \
      RUN+="/bin/rm -f /run/xboxdrv/running/$env{BUSNUM}-$env{DEVNUM}"
