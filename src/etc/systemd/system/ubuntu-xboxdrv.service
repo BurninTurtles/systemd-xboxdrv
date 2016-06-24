@@ -10,7 +10,7 @@ Type=oneshot
 ExecStartPre=/bin/sleep 3
 
 ExecStart=/bin/rm -f /dev/input/js*
-ExecStart=/usr/share/ubuntu-xboxdrv/build-run
+ExecStart=/usr/share/systemd-xboxdrv/build-run
 RemainAfterExit=yes
 
 ExecStartPost=/bin/udevadm trigger --subsystem-match='usb'
