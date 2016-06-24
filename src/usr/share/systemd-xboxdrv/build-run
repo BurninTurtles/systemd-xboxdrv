@@ -61,7 +61,7 @@ if [ -n "$CONTROLLER3" ] ; then
     echo CONTROLLER_OPTIONS="$CONTROLLER3_OPTIONS" >> /run/xboxdrv/profiles/$CONTROLLER3
     echo PAD_OPTIONS="$PAD_OPTIONS" >> /run/xboxdrv/profiles/$CONTROLLER3
 fi
-cp /run/xboxdrv/uxvars /usr/share/ubuntu-xboxdrv/uxvars.bak
+cp /run/xboxdrv/uxvars /usr/share/systemd-xboxdrv/uxvars.bak
 echo XBOXDRV_OPTIONS="$XBOXDRV_OPTIONS" > /run/xboxdrv/uxvars
 echo CONTROLLER0_OPTIONS="$CONTROLLER0_OPTIONS" >> /run/xboxdrv/uxvars
 echo CONTROLLER1_OPTIONS="$CONTROLLER1_OPTIONS" >> /run/xboxdrv/uxvars
