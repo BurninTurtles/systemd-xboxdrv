@@ -15,15 +15,15 @@ XBOXDRV_OPTIONS=""
 
 # Edit each block to give each controller slot its own options.
 # These are appended last for their respective slots
-CONTROLLER0_OPTIONS=                                                                                                                                                                                                                         
-CONTROLLER1_OPTIONS=
-CONTROLLER2_OPTIONS=
-CONTROLLER3_OPTIONS=
+CONTROLLER0_OPTIONS=""
+CONTROLLER1_OPTIONS=""
+CONTROLLER2_OPTIONS=""
+CONTROLLER3_OPTIONS=""
 
 # match each of these slots with the value reported by lsusb for your specific devices
 # Eg. my wired xbox360 controller is controller1 has an id of 045e:028e, so ill place '045e:028e' inside
 its corresponding slot
-CONTROLLER0=                                                                                                                                                                                                                         
-CONTROLLER1=
-CONTROLLER2=
-CONTROLLER3=
+CONTROLLER0=""
+CONTROLLER1=""
+CONTROLLER2=""
+CONTROLLER3=""
