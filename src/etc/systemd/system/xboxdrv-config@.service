@@ -1,9 +1,7 @@
 [Unit]
 Description=Xbox Configuration
-After=ubuntu-xboxdrv.service
-Before=xboxdrv@%i.service
-Requires=xboxdrv@%i.service
 StopWhenUnneeded=true
+PartOf=xboxdrv@%i.service
 
 [Service]
 Type=oneshot
